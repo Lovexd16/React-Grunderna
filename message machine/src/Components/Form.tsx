@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 
-function Form() {
-  const [title, setTitle] = useState<string>("");
-  const [reciever, setReciever] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+type SubmitHandler = (data: {
+  title: string;
+  reciever: string;
+  message: string;
+}) => void;
+
+interface FormProps {
+  onSubmit: SubmitHandler;
+}
+
+function Form({ onSubmit }: FormProps) {
+  const [title, setTitle] = useState("");
+  const [reciever, setReciever] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit({ title, reciever, message });
+  };
 
   return (
     <form
@@ -14,6 +29,7 @@ function Form() {
         backgroundColor: "white",
         color: "black",
       }}
+      onSubmit={handleSubmit}
     >
       <input
         type="text"

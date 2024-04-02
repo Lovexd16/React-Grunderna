@@ -1,11 +1,23 @@
 import React from "react";
 
-function Message() {
+interface FormData {
+  title: string;
+  reciever: string;
+  message: string;
+}
+
+interface MessageProps {
+  formData: FormData;
+}
+
+function Message({ formData }: MessageProps) {
+  const { title, reciever, message } = formData;
+
   return (
     <div style={{ backgroundColor: "black", color: "white", width: "50%" }}>
-      <h1>Rubrik: </h1>
-      <p>Mottagare: </p>
-      <p>Meddelande: </p>
+      <h1>Rubrik: {title}</h1>
+      <p>Mottagare: {reciever} </p>
+      <p>Meddelande: {message} </p>
     </div>
   );
 }

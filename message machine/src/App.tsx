@@ -1,7 +1,24 @@
+import { useState } from "react";
 import Form from "./Components/Form";
 import Message from "./Components/Message";
 
+type FormData = {
+  title: string;
+  reciever: string;
+  message: string;
+};
+
 function App() {
+  const [formData, setFormData] = useState<FormData>({
+    title: "",
+    reciever: "",
+    message: "",
+  });
+
+  const handleSubmit = (data: FormData) => {
+    setFormData(data);
+  };
+
   return (
     <>
       <h1
@@ -14,8 +31,8 @@ function App() {
         Message Machine
       </h1>
       <div style={{ display: "flex" }}>
-        <Form />
-        <Message />
+        <Form onSubmit={handleSubmit} />
+        <Message formData={formData} />
       </div>
     </>
   );
