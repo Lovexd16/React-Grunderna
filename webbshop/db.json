@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "hf91",
+      "productName": "Keps"
+    },
+    {
+      "id": "ge01",
+      "productName": "Sko"
+    },
+    {
+      "id": "ba92",
+      "productName": "Byxa"
+    },
+    {
+      "id": "1afe",
+      "productName": "Skjorta"
+    }
+  ]
+}
